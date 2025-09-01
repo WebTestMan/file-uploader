@@ -3,6 +3,8 @@ const fileRouter = Router();
 const appController = require("../controllers/appController");
 
 fileRouter.get("/sign-up-form", appController.signUpFormGET);
-fileRouter.get("/", (req, res) => res.render("index", {title: "Homepage"}));
+fileRouter.get("/", (req, res) => {
+  res.render("index", { title: "Homepage", user: req.user });
+});
 
 module.exports = fileRouter;
