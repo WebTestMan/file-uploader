@@ -23,5 +23,8 @@
     <%}%>
 
     <a href="/sign-up-form">Sign Up Form</a>
+    <% users.forEach(element => {%>
+    <span> <%= element.email %> </span>
+    <% }); %>
   </body>
 </html>
