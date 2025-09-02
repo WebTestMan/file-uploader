@@ -57,33 +57,33 @@ passport.deserializeUser(async (id, done) => {
   }
 });
 
-const expressSession = require("express-session");
-const { PrismaSessionStore } = require("@quixo3/prisma-session-store");
-const { PrismaClient } = require("./generated/prisma");
+// const expressSession = require("express-session");
+// const { PrismaSessionStore } = require("@quixo3/prisma-session-store");
+// const { PrismaClient } = require("./generated/prisma");
 
-app.use(
-  expressSession({
-    cookie: {
-      maxAge: 7 * 24 * 60 * 60 * 1000, // ms
-    },
-    secret: "a santa at nasa",
-    resave: true,
-    saveUninitialized: true,
-    store: new PrismaSessionStore(new PrismaClient(), {
-      checkPeriod: 2 * 60 * 1000, //ms
-      dbRecordIdIsSessionId: true,
-      dbRecordIdFunction: undefined,
-    }),
-  })
-);
+// app.use(
+//   expressSession({
+//     cookie: {
+//       maxAge: 7 * 24 * 60 * 60 * 1000, // ms
+//     },
+//     secret: "a santa at nasa",
+//     resave: true,
+//     saveUninitialized: true,
+//     store: new PrismaSessionStore(new PrismaClient(), {
+//       checkPeriod: 2 * 60 * 1000, //ms
+//       dbRecordIdIsSessionId: true,
+//       dbRecordIdFunction: undefined,
+//     }),
+//   })
+// );
 
-app.post(
-  "/log-in",
-  passport.authenticate("local", {
-    successRedirect: "/",
-    failureRedirect: "/",
-  })
-);
+// app.post(
+//   "/log-in",
+//   passport.authenticate("local", {
+//     successRedirect: "/",
+//     failureRedirect: "/",
+//   })
+// );
 
 app.listen(3000, (error) => {
   if (error) {
