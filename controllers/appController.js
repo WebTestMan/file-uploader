@@ -4,7 +4,7 @@ async function signUpFormGET(req, res) {
   res.render("sign-up-form", { title: "Sign Up Form" });
 }
 const createUser = async (req, res) => {
-  await prismaDB.createUser(req);
+  await prismaDB.createUser(req.body.name, req.body.email);
   res.redirect("/");
 };
 

@@ -6,7 +6,6 @@ fileRouter.get("/sign-up-form", appController.signUpFormGET);
 fileRouter.post("/sign-up", appController.createUser);
 fileRouter.get("/", async (req, res) => {
   const users = await appController.getUsers();
-  console.log(users);
 
   res.render("index", { title: "Homepage", users: users });
 });
